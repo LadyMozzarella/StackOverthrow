@@ -1,6 +1,8 @@
  require 'spec_helper'
 
 describe UsersController do
+  render_views
+
   describe '#show' do
     it "should show user profile"
   end
@@ -10,7 +12,14 @@ describe UsersController do
       it "should redirect the user to their profile"
     end
     context 'not logged in' do
-      it "should show a new user form"
+      it 'respond is ok' do
+        get :new
+        expect(response).to be_ok
+      end
+      it "should show a new user form" do
+        get :new
+        expect(response.body).to include 'form'
+      end
     end
   end
 
