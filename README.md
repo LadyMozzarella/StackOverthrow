@@ -3,7 +3,8 @@ stackoverthrow
 
 Schema:
 
-![](/images/schema.PNG)
+![](https://github.com/banana-slugs-2014/stackoverthrow/blob/master/images/schema.png?raw=true)
 
 MVP:
-![](/images/schema.JPG)
+
+![](https://github.com/banana-slugs-2014/stackoverthrow/blob/master/images/schema2.JPG?raw=true)
