@@ -13,4 +13,19 @@ describe QuestionsController do
       expect(assigns(:question)).to be_a_new(Question)
     end
   end
+
+  context "#create" do
+    context "valid attributes" do
+      it "creates a new question" do
+        expect {
+          get :create, :question => attributes_for(:question)
+          expect(response).to be_redirect
+        }.to change { Question.count }.by(1)
+      end
+    end
+
+    context "invalid attributes" do
+      it "doesn't create a new question"
+    end
+  end
 end
