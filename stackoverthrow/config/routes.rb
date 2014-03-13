@@ -1,3 +1,4 @@
 Stackoverthrow::Application.routes.draw do
-  resources :questions, :only => [:new]
+  root :to => "questions#index"
+  resources :questions, :only => [:new, :create]
 end

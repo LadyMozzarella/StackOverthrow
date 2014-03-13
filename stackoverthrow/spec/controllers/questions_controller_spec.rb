@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe QuestionsController do
   let!(:question){ create :question }
+
+  context "#index" do
+    it "is successful" do
+      get :index
+      expect(response).to be_success
+    end
+  end
+
   context "#new" do
     it "is successful" do
       get :new
