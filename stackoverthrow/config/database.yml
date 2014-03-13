@@ -4,10 +4,7 @@ development:
   database: stackoverthrow_development
   username: stackoverthrow
 
-
 test:
   adapter: postgresql
   database: stackoverthrow_test
   username: stackoverthrow
-
-

@@ -1,11 +1,6 @@
-#outline
-# FactoryGirl.define do
-#   factory :todo do
-#     title { Faker::Lorem.word }
-#   end
-
-#   factory :task do
-#     body { Faker::Lorem.word }
-#     todo
-#   end
-# end
+FactoryGirl.define do
+  factory :user do
+    username "thefenry"
+    password "abcd1234"
+  end
+end
