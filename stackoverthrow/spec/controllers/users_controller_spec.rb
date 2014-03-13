@@ -1,5 +1,5 @@
- require 'test_helper'
+# require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+# class UsersControllerTest < ActionController::TestCase
 
-end
+# end
