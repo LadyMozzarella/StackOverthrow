@@ -12,6 +12,5 @@ describe QuestionsController do
       get :new
       expect(assigns(:question)).to be_a_new(Question)
     end
-
   end
 end

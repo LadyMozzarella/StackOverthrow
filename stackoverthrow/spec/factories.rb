@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   factory :question do
-    title "Dr. Who?"
-    text "Dr. You!"
+    title Faker::Lorem.word
+    text Faker::Lorem.word
   end
 end
