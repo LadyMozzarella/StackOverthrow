@@ -1,5 +1,4 @@
 class AnswersController < ApplicationController
-  include ApplicationHelper
   before_filter :load_question
 
   def new
@@ -25,6 +24,7 @@ class AnswersController < ApplicationController
 
   def update
     load_answer
+
     unless @answer.update_attributes(params[:answer]) && current_user.id == @answer.user_id
       @answer.errors.add(:user_id, 'must be the posting user to edit.') unless current_user.id == @answer.user_id
       render(:edit) && return

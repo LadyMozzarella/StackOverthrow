@@ -1,10 +1,12 @@
 <%= render 'shared/login:logout' %>
 <%= render 'shared/errors', :object => @user %>
+<%= render 'shared/flash', :flash => flash %>
+
 <%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :password %>
-  <%= f.password_field :password %> 
+  <%= f.password_field :password %>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
   <%= f.submit %>
