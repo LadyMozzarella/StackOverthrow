@@ -34,8 +34,7 @@ class QuestionsController < ApplicationController
     unless @question.update_attributes(params[:question]) && @question.user_id == current_user.id
       render(:edit) && return
     end
-
-    redirect_to(question_path(@question))
+    redirect_to(question_path(@question)) && return
   end
 
   def destroy

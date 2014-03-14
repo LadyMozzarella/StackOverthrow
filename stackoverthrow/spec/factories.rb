@@ -7,10 +7,12 @@ FactoryGirl.define do
   factory :question do
     title Faker::Lorem.word
     text Faker::Lorem.word
+    user
   end
 
   factory :answer do
     text Faker::Lorem.word
     question
+    user
   end
 end

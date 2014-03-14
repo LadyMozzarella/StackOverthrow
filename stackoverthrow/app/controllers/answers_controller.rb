@@ -6,16 +6,17 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(params[:answer])
+    if logged_in?
+      @answer = @question.answers.new params[:answer]
 
-    unless @answer.save && logged_in?
-      @answer.errors.add(:user_id, 'must be the posting user to edit.')
-      render(:new) && return
+      unless (current_user.answers << @answer) && (@question.answers << @answer)
+        render(:new) && return
+      end
+
+      redirect_to(question_path(@question)) && return
     end
 
-    current_user.answers << @answer
-    @question.answers << @answer
-    redirect_to question_path(@question)
+    redirect_to new_user_path, flash: {errors: "Not logged in"}
   end
 
   def edit
@@ -26,11 +27,10 @@ class AnswersController < ApplicationController
     load_answer
 
     unless @answer.update_attributes(params[:answer]) && current_user.id == @answer.user_id
-      @answer.errors.add(:user_id, 'must be the posting user to edit.') unless current_user.id == @answer.user_id
       render(:edit) && return
     end
 
-    redirect_to(question_path(@question))
+    redirect_to(question_path(@question)) && return
   end
 
   def destroy
