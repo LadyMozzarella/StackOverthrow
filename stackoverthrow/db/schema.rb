@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(:version => 20140314183929) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username",   :null => false
-    t.string   "password",   :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "username",        :null => false
+    t.string   "password_digest", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "votes", :force => true do |t|
