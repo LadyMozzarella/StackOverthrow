@@ -1,1 +1,13 @@
 require 'spec_helper'
+
+describe User do
+  context "validations" do
+    it { should validate_presence_of :username }
+    it { should validate_presence_of :password }
+  end
+
+  context "associations" do
+    it { should have_many(:answers) }
+    it { should have_many(:questions) }
+  end
+end

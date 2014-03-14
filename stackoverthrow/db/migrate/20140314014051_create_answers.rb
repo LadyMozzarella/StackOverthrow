@@ -3,6 +3,7 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.text :text
       t.belongs_to :question
+      t.belongs_to :user
     end
   end
 end
