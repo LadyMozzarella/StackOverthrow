@@ -82,7 +82,6 @@ describe QuestionsController do
         }.to_not change{ question.reload.text }
       end
     end
-
   end
 
   context "#destroy" do
