@@ -8,4 +8,9 @@ FactoryGirl.define do
     title Faker::Lorem.word
     text Faker::Lorem.word
   end
+
+  factory :answer do
+    text Faker::Lorem.word
+    question
+  end
 end

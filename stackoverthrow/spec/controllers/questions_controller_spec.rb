@@ -4,7 +4,7 @@ describe QuestionsController do
   render_views
   let!(:question){ create :question }
 
-  context "#index" do
+  describe "#index" do
     it "is successful" do
       get :index
       expect(response).to be_success
@@ -16,7 +16,7 @@ describe QuestionsController do
     end
   end
 
-  context "#new" do
+  describe "#new" do
     it "is successful" do
       get :new
       expect(response).to be_success
@@ -28,7 +28,7 @@ describe QuestionsController do
     end
   end
 
-  context "#create" do
+  describe "#create" do
     context "valid attributes" do
       it "creates a new question" do
         expect {
@@ -55,7 +55,7 @@ describe QuestionsController do
     end
   end
 
-  context "#edit" do
+  describe "#edit" do
     it "should be successful" do
       get :edit, :id => question.id
       expect(response).to be_success
