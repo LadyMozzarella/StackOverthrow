@@ -15,6 +15,8 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    p "======================="
+    p params
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
   end

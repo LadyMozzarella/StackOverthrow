@@ -1,6 +1,4 @@
 <%= render 'question' %>
 <ul>
-<% @answers.each do |answer| %>
-  <li><%= answer.text %></li>
-<% end %>
+  <%= render 'answers/answer', :object => @question, :object => @answers %>
 </ul>
