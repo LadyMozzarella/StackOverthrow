@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def index
+    @questions = Question.all
   end
 
   def new
@@ -7,7 +8,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    p params
     @question = Question.new params[:question]
     @question.save
     redirect_to root_path
