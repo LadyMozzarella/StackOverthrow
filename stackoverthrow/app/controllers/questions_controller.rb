@@ -9,7 +9,8 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new params[:question]
-
+    @user = User.find(id)
+    @user.questions << @question
     redirect_to(root_path) && return if @question.save
 
     @questions = Question.all
