@@ -15,4 +15,6 @@ FactoryGirl.define do
     question
     user
   end
+
+
 end
