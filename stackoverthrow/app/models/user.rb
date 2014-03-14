@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   has_many :questions
   has_many :answers
-  
+  has_many :votes
 end
