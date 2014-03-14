@@ -1,5 +1,5 @@
 class CreateUsers < ActiveRecord::Migration
-  def up
+  def change
     create_table :users do |t|
       t.string :username, null: false
       t.string :password, null: false
@@ -8,6 +8,4 @@ class CreateUsers < ActiveRecord::Migration
     end
   end
 
-  def down
-  end
 end
