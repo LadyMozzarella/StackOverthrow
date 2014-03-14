@@ -17,16 +17,16 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    load_question
     @answers = @question.answers
   end
 
   def edit
-    @question = Question.find(params[:id])
+    load_question
   end
 
   def update
-    @question = Question.find(params[:id])
+    load_question
 
     render(:edit) && return unless @question.update_attributes(params[:question])
 
@@ -34,8 +34,14 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    load_question
     @question.destroy
     redirect_to(root_path)
+  end
+
+  private
+
+  def load_question
+    @question = Question.find(params[:id])
   end
 end

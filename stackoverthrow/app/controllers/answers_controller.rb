@@ -1,11 +1,11 @@
 class AnswersController < ApplicationController
+  before_filter :load_question
+
   def new
-    @question = Question.find(params[:question_id])
     @answer = Answer.new
   end
 
   def create
-    @question = Question.find(params[:question_id])
     @answer = Answer.new(params[:answer])
 
     render(:new) && return unless @answer.save
@@ -15,13 +15,11 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:question_id])
-    @answer = Answer.find(params[:id])
+    load_answer
   end
 
   def update
-    @question = Question.find(params[:question_id])
-    @answer = Answer.find(params[:id])
+    load_answer
 
     render(:edit) && return unless @answer.update_attributes(params[:answer])
 
@@ -29,9 +27,18 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    # @question = Question.find(params[:id])
-    @answer = Answer.find(params[:id])
+    load_answer
     @answer.destroy
-    redirect_to(root_path)
+    redirect_to(question_path(@question))
+  end
+
+  private
+
+  def load_question
+    @question = Question.find(params[:question_id])
+  end
+
+  def load_answer
+    @answer = Answer.find(params[:id])
   end
 end
