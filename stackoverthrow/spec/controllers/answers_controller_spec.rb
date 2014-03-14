@@ -35,4 +35,40 @@ describe AnswersController do
       end
     end
   end
+
+  context "#edit" do
+    it "should be successful" do
+      get :edit, :question_id => question.id, :id => answer.id
+      expect(response).to be_success
+    end
+  end
+
+  context "#update" do
+    context "with valid attributes" do
+      it "updates the attributes" do
+        expect {
+          put :update, :question_id => question.id, :id => answer.id, :answer => { text: "New Text" }
+          expect(response).to be_redirect
+        }.to change{ answer.reload.text }.to ("New Text")
+      end
+    end
+
+    context "with invalid attributes" do
+      it "doesn't update the attributes" do
+        expect {
+          put :update, :question_id => question.id, :id => answer.id, :answer => { text: nil }
+          expect(response).to_not be_redirect
+        }.to_not change{ answer.reload.text }
+      end
+    end
+  end
+
+  context "#destroy" do
+    it "deletes a comment" do
+      expect {
+        delete :destroy, :question_id => question.id, :id => answer.id
+        expect(response).to be_redirect
+      }.to change{ Answer.count }.by(-1)
+    end
+  end
 end

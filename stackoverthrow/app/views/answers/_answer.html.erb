@@ -1,0 +1,9 @@
+<ul>
+  <% @answers.each do |answer| %>
+  <%= answer.text %>
+    <li>
+      <%= button_to "Edit Answer", edit_question_answer_path( @question, answer ), :method => :get %>
+      <%= button_to "Delete Answer", question_answer_path( @question, answer ), :method => :delete %>
+    </li>
+  <% end %>
+</ul>
