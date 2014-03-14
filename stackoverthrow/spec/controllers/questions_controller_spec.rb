@@ -71,6 +71,18 @@ describe QuestionsController do
         }.to change{ question.reload.text }.to ("New Text")
       end
     end
+
+    context "with invalid attributes" do
+      it "doesn't update the attributes" do
+        expect {
+          put :update, :id => question.id, :question => {
+            text: nil, title: nil
+          }
+          expect(response).to_not be_redirect
+        }.to_not change{ question.reload.text }
+      end
+    end
+
   end
 
   context "#destroy" do
