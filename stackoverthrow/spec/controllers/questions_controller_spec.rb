@@ -1,12 +1,18 @@
 require 'spec_helper'
 
 describe QuestionsController do
+  render_views
   let!(:question){ create :question }
 
   context "#index" do
     it "is successful" do
       get :index
       expect(response).to be_success
+    end
+
+    it "shows a question title" do
+      get :index
+      expect(response.body).to include(question.title)
     end
   end
 
