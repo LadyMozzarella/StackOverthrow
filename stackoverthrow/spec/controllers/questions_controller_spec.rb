@@ -3,6 +3,7 @@ require 'spec_helper'
 describe QuestionsController do
   render_views
   let!(:question){ create :question }
+  let!(:user){ create :user }
 
   describe "#index" do
     it "is successful" do
@@ -31,6 +32,7 @@ describe QuestionsController do
   describe "#create" do
     context "valid attributes" do
       it "creates a new question" do
+        session[:id] = user.id
         expect {
           post :create, :question => attributes_for(:question)
           expect(response).to be_redirect
@@ -40,6 +42,7 @@ describe QuestionsController do
 
     context "invalid attributes" do
       it "doesn't create a new question for blank text field" do
+        session[:id] = user.id
         expect {
           post :create, :question => {title: "Blabadoobah", text: nil}
           expect(response).to render_template('questions/new')
@@ -47,6 +50,7 @@ describe QuestionsController do
       end
 
       it "doesn't create a new question for blank title field" do
+        session[:id] = user.id
         expect {
           post :create, :question => {title: nil, text: "Something"}
           expect(response).to render_template('questions/new')
@@ -65,20 +69,21 @@ describe QuestionsController do
   context "#update" do
     context "with valid attributes" do
       it "updates the attributes" do
+        session[:id] = user.id
         expect {
-          put :update, :id => question.id, :question => { text: "New Text" }
-          expect(response).to be_redirect
+          put :update, :id => question.id, :user_id => user.id, :question => { text: "New Text" }
         }.to change{ question.reload.text }.to ("New Text")
       end
     end
 
     context "with invalid attributes" do
       it "doesn't update the attributes" do
+        session[:id] = user.id
         expect {
-          put :update, :id => question.id, :question => {
+          put :update, :id => question.id, :user_id => user.id, :question => {
             text: nil, title: nil
           }
-          expect(response).to_not be_redirect
+          expect(response).to render_template("questions/edit")
         }.to_not change{ question.reload.text }
       end
     end
