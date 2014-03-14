@@ -54,4 +54,43 @@ describe QuestionsController do
       end
     end
   end
+
+  context "#edit" do
+    it "should be successful" do
+      get :edit, :id => question.id
+      expect(response).to be_success
+    end
+  end
+
+  context "#update" do
+    context "with valid attributes" do
+      it "updates the attributes" do
+        expect {
+          put :update, :id => question.id, :question => { text: "New Text" }
+          expect(response).to be_redirect
+        }.to change{ question.reload.text }.to ("New Text")
+      end
+    end
+
+    context "with invalid attributes" do
+      it "doesn't update the attributes" do
+        expect {
+          put :update, :id => question.id, :question => {
+            text: nil, title: nil
+          }
+          expect(response).to_not be_redirect
+        }.to_not change{ question.reload.text }
+      end
+    end
+
+  end
+
+  context "#destroy" do
+    it "deletes a question and redirects" do
+      expect {
+        delete :destroy, :id => question.id
+        expect(response).to be_redirect
+      }.to change{ Question.count }.by(-1)
+    end
+  end
 end
