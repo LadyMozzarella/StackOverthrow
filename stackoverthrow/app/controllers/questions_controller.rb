@@ -10,15 +10,10 @@ class QuestionsController < ApplicationController
 
   def create
     if logged_in?
-
       @question = current_user.questions.new params[:question]
 
-      if (current_user.questions << @question)
-        redirect_to(root_path) && return
-      else
-        render :new
-      end
-
+      render(:new) && return unless (current_user.questions << @question)
+      redirect_to(root_path) && return
     end
 
     redirect_to new_user_path, flash: {errors: "Not logged in"}
