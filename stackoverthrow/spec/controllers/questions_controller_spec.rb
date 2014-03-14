@@ -54,4 +54,13 @@ describe QuestionsController do
       end
     end
   end
+
+  context "#destroy" do
+    it "deletes a question and redirects" do
+      expect {
+        delete :destroy, :id => question.id
+        expect(response).to be_redirect
+      }.to change{ Question.count }.by(-1)
+    end
+  end
 end
