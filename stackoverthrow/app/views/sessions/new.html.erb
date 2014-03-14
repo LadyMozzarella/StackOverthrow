@@ -1,3 +1,6 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
 <%= form_tag  sessions_path do%>
     <%= label_tag(:username, "Username") %>
     <%= text_field_tag(:username) %>
