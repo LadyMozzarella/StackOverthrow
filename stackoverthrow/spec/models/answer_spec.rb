@@ -6,6 +6,7 @@ describe Answer do
   end
 
   context "associations" do
-    it { should belong_to(:question)}
+    it { should belong_to(:question) }
+    it { should belong_to(:user) }
   end
 end
