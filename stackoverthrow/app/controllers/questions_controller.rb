@@ -20,6 +20,9 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
+  def edit
+  end
+
   def destroy
     @question = Question.find(params[:id])
     @question.destroy

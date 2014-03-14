@@ -55,6 +55,13 @@ describe QuestionsController do
     end
   end
 
+  context "#edit" do
+    it "should be successful" do
+      get :edit, :id => question.id
+      expect(response).to be_success
+    end
+  end
+
   context "#destroy" do
     it "deletes a question and redirects" do
       expect {
