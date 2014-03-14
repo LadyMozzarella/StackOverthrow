@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe UsersController do
   render_views
+  let(:user){FactoryGirl.create(:user)}
+  let(:attribs){FactoryGirl.attributes_for(:user)}
 
   describe '#show' do
     it "should show user profile"
@@ -24,7 +26,9 @@ describe UsersController do
   end
 
   context '#create' do
-    it "should add a new user to the database"
+    it "should add a new user to the database" do
+      expect{post :create, user: attribs}.to change{User.count}.by(1)
+    end
   end
 
   describe '#edit' do
