@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    redirect_to user_path(session[:id]) unless !session[:id]
     @user = User.new
   end
 
