@@ -20,4 +20,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    session.clear
+    redirect_to new_user_path
+  end
 end
