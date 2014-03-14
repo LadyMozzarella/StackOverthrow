@@ -93,4 +93,11 @@ describe QuestionsController do
       }.to change{ Question.count }.by(-1)
     end
   end
+
+  context "user questions" do
+    it "lists questions by user" do
+      
+    end
+
+  end
 end

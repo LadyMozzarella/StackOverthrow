@@ -7,6 +7,7 @@ FactoryGirl.define do
   factory :question do
     title Faker::Lorem.word
     text Faker::Lorem.word
+    user_id "1"
   end
 
   factory :answer do
