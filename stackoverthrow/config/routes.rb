@@ -4,6 +4,6 @@ Stackoverthrow::Application.routes.draw do
     resources :answers, only: [:new, :create]
   end
 
-  resources :users, only: [:show, :create, :new, :edit, :update]
+  resources :users, only: [:show, :create, :new]
 
 end
