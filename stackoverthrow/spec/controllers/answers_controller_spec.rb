@@ -35,4 +35,19 @@ describe AnswersController do
       end
     end
   end
+
+  context "#edit" do
+    it "should be successful" do
+      get :edit, :question_id => question.id, :id => answer.id
+      expect(response).to be_success
+    end
+  end
+
+  context "#update" do
+
+  end
+
+  context "#destroy" do
+
+  end
 end
