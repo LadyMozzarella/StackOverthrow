@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  include ApplicationHelper
   before_filter :load_question
 
   def new
@@ -8,8 +9,12 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(params[:answer])
 
-    render(:new) && return unless @answer.save
+    unless @answer.save && logged_in?
+      @answer.errors.add(:user_id, 'must be the posting user to edit.')
+      render(:new) && return
+    end
 
+    current_user.answers << @answer
     @question.answers << @answer
     redirect_to question_path(@question)
   end
@@ -20,8 +25,10 @@ class AnswersController < ApplicationController
 
   def update
     load_answer
-
-    render(:edit) && return unless @answer.update_attributes(params[:answer])
+    unless @answer.update_attributes(params[:answer]) && current_user.id == @answer.user_id
+      @answer.errors.add(:user_id, 'must be the posting user to edit.') unless current_user.id == @answer.user_id
+      render(:edit) && return
+    end
 
     redirect_to(question_path(@question))
   end

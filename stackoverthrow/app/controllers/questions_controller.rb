@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  include ApplicationHelper
+
   def index
     @questions = Question.all
   end
@@ -10,8 +12,13 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new params[:question]
 
-    redirect_to(root_path) && return if @question.save
+    if @question.save && logged_in?
+      current_user.questions << @question
+      redirect_to(root_path) && return
+      debugger
+    end
 
+    @question.errors.add(:user_id, 'must be the posting user to edit.')
     @questions = Question.all
     render :new
   end
