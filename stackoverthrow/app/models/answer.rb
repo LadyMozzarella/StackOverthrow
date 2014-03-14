@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  attr_accessor :text
+  attr_accessible :text
   validates :text, :presence => true
   belongs_to :question
 end

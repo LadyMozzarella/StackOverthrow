@@ -1,1 +1,6 @@
 <%= render 'question' %>
+<ul>
+<% @answers.each do |answer| %>
+  <li><%= answer.text %></li>
+<% end %>
+</ul>
