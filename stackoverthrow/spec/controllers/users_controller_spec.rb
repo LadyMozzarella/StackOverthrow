@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe UsersController do
   render_views
-  let(:user){FactoryGirl.create(:user)}
+  let!(:user){FactoryGirl.create(:user)}
   let(:attribs){FactoryGirl.attributes_for(:user)}
 
   describe '#show' do
-    it "should show user profile"
+    it "should show user profile" do
+      get :show , id: user.id
+      expect(response.body).to include(user.username)
+    end
   end
 
   describe '#new' do
