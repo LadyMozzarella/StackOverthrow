@@ -13,4 +13,9 @@ class AnswersController < ApplicationController
     @question.answers << @answer
     redirect_to question_path(@question)
   end
+
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = Answer.find(params[:id])
+  end
 end
