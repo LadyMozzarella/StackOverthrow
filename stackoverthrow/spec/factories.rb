@@ -13,4 +13,6 @@ FactoryGirl.define do
     text Faker::Lorem.word
     question
   end
+
+
 end

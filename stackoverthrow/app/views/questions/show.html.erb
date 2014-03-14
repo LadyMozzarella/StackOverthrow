@@ -1,3 +1,5 @@
+<%= button_to "Vote Up", question_votes_path(@question, :vote => 'true') %>
+
 <%= render 'question' %>
 <ul>
   <%= render 'answers/answer', :object => @question, :object => @answers %>

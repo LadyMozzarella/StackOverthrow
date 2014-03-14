@@ -6,4 +6,12 @@ Stackoverthrow::Application.routes.draw do
 
   resources :users, only: [:show, :create, :new, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :questions, only: [:create, :destroy] do
+    resources :votes, only: [:new, :create, :destroy]
+  end
+
+  resources :answers, only: [:create, :destroy] do
+    resources :votes, only: [:new, :create, :destroy]
+  end
 end
