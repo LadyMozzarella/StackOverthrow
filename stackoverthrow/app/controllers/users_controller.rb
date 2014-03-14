@@ -19,9 +19,4 @@ class UsersController < ApplicationController
     redirect_to new_user_path unless session[:id]
     @user = User.find(params[:id])
   end
-
-  def destroy
-    session.clear
-    redirect_to new_user_path
-  end
 end

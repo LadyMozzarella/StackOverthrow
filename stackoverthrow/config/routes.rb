@@ -5,4 +5,5 @@ Stackoverthrow::Application.routes.draw do
   end
 
   resources :users, only: [:show, :create, :new, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 end
