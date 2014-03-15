@@ -11,7 +11,13 @@ class VotesController < ApplicationController
   def create
     load_votable
     redirect_to(new_user_path) && return unless logged_in?
-    redirect_to(@votable) && return if @votable.votes.find_by_user_id(current_user.id)
+
+    if @votable.class.name == "Question"
+      redirect_to(@votable) && return if @votable.votes.find_by_user_id(current_user.id)
+    else
+      redirect_to(@votable.question) && return if @votable.votes.find_by_user_id(current_user.id)
+    end
+
     @votable.vote_count += params[:up_down].to_i
     @votable.save
     @vote = @votable.votes.create(user_id: current_user.id)
@@ -19,7 +25,12 @@ class VotesController < ApplicationController
     @vote.up_down = params[:up_down]
     @vote.save
 
-    redirect_to(@votable) #:controller => @votable.class.name.downcase + 's', :action => 'show', :id => @votable.id, votecount: @number
+    if @votable.class.name == "Question"
+      redirect_to(@votable)
+    else
+      redirect_to(@votable.question)
+    end
+
   end
 
   def destroy
