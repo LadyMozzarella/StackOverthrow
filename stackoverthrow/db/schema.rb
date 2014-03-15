@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20140314183929) do
     t.boolean  "vote"
     t.integer  "votable_id"
     t.string   "votable_type"
+    t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

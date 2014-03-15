@@ -14,6 +14,7 @@ class VotesController < ApplicationController
   def create
     load_votable
     p params
+    
     @vote = @votable.votes.new
     @vote.user_id = session[:id]
     @vote.vote = params[:up]
