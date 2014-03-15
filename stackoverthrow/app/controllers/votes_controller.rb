@@ -4,33 +4,25 @@ class VotesController < ApplicationController
     @votes = @votable.votes
   end
 
-  def new
 
+  def new
   end
+
 
   def create
     load_votable
     redirect_to(new_user_path) && return unless logged_in?
 
-    if @votable.class.name == "Question"
-      redirect_to(@votable) && return if @votable.votes.find_by_user_id(current_user.id)
-    else
-      redirect_to(@votable.question) && return if @votable.votes.find_by_user_id(current_user.id)
-    end
+    @vote = Vote.new
+    path = @vote.get_redirect_path(@votable)
+    redirect_to(path) && return if @votable.votes.find_by_user_id(current_user.id)
+    up_or_down = params[:up_down].to_i
 
-    @votable.vote_count += params[:up_down].to_i
-    @votable.save
-    @vote = @votable.votes.create(user_id: current_user.id)
-    @vote.user = current_user
-    @vote.up_down = params[:up_down]
+    @vote = @votable.votes.create(user_id: current_user.id, up_down: up_or_down)
+    @vote.update_count(@votable, up_or_down)
     @vote.save
 
-    if @votable.class.name == "Question"
-      redirect_to(@votable)
-    else
-      redirect_to(@votable.question)
-    end
-
+    redirect_to(path)
   end
 
   def destroy
