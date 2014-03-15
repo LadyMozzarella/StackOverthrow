@@ -1,12 +1,12 @@
 var Navigation = {
   bindEvents: function() {
-    $('.new_question').on('submit', this.appendQuestion);
+    $('.login_btn').on('submit', this.appendQuestion);
     // $('.nav-tabs.units').on('click', 'li a', this.showTab);
     // $('.nav-tabs.content').on('click', 'li a', this.showContent);
   },
   appendQuestion: function(){
     event.preventDefault();
-    
+    alert("yay")
   }
   // showTab: function() {
   //   event.preventDefault();
