@@ -12,7 +12,7 @@ class Vote < ActiveRecord::Base
     end
   end
 
-  def update_count(votable, up_or_down)
+  def update_votable_count(votable, up_or_down)
     votable.vote_count += up_or_down
     votable.save
   end
