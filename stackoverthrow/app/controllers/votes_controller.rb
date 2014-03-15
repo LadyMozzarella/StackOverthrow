@@ -10,16 +10,16 @@ class VotesController < ApplicationController
 
   def create
     load_votable
-
-    @vote = @votable.votes.find_or_create_by_user_id_and_votable_id(current_user.id, @votable.id)
+    redirect_to(new_user_path) && return unless logged_in?
+    redirect_to(@votable) && return if @votable.votes.find_by_user_id(current_user.id)
+    @votable.vote_count += params[:up_down].to_i
+    @votable.save
+    @vote = @votable.votes.create(user_id: current_user.id)
     @vote.user = current_user
-    @votable.user_id = session[:id]
     @vote.up_down = params[:up_down]
     @vote.save
 
-    @number = 0
-    @votable.votes.each{|vote| @number += vote.up_down }
-    redirect_to :controller => @votable.class.name.downcase + 's', :action => 'show', :id => @votable.id, votecount: @number
+    redirect_to(@votable) #:controller => @votable.class.name.downcase + 's', :action => 'show', :id => @votable.id, votecount: @number
   end
 
   def destroy
