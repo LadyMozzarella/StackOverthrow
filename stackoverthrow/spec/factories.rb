@@ -17,6 +17,7 @@ FactoryGirl.define do
   factory :question_vote, class: "Vote" do
     association :votable, :factory => :question
     vote "-1"
+    user_id "1"
   end
    
   factory :answer_vote, class: "Vote" do

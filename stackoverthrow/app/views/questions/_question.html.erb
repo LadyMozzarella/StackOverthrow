@@ -4,4 +4,7 @@
   <%= button_to "Delete", question_path, :method => :delete %>
   <%= button_to "Edit", edit_question_path(@question), :method => :get %>
   <%= button_to "Answer", new_question_answer_path(@question), :method => :get %>
+  <% @votable.votes.each do |v| %>
+    <%= v.vote %>
+<% end %>
 </div>

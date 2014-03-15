@@ -2,4 +2,6 @@
     <%= link_to "Vote Up", question_votes_path(@votable, :up => 1 ), :method => :post %>
     <%= link_to "Vote Down", question_votes_path(@votable, :up => -1 ), :method => :post %>
 </p>
-<%= @votable.user_id %>
+<% @votable.votes.each do |v| %>
+    <%= v.vote %>
+<% end %>

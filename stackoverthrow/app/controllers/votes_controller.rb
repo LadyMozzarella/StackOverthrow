@@ -9,7 +9,7 @@ class VotesController < ApplicationController
 
   def create
     load_votable
-    p @votable.votes.find_by_user_id(session[:id]).vote
+    # redirect_to root_path && return  if @votable.votes.find_by_user_id(session[:id]).vote 
     @vote = @votable.votes.new
     @vote.user_id = session[:id]
     @vote.vote = params[:up]
