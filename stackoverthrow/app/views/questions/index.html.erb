@@ -1,8 +1,11 @@
-<%= render 'shared/login:logout' %>
-<ul>
+<%= button_to "Ask a Question", new_question_path, :method => :get %>
+
+<ul class="questions">
    <% @questions.each do |question| %>
-    <li><%= link_to question.title, question_path(question) %></li>
+    <li>
+      <span class="question_link"><%= link_to question.title, question_path(question) %></span>
+      <span class="question_user">Asked by: <span class="user"><%= question.user.username %></span></span>
+    </li>
   <% end %>
 </ul>
 
-<%= button_to "Ask a Question", new_question_path, :method => :get %>

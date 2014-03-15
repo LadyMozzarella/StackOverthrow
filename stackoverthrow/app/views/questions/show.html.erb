@@ -1,5 +1,3 @@
 <%= render 'votes/vote' %><%= params[:votecount] %>
 <%= render 'question' %>
-<ul>
-  <%= render 'answers/answer', :object => @question, :object => @answers %>
-</ul>
+<%= render 'answers/answer', :object => @question, :object => @answers %>
