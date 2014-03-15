@@ -1,2 +1,5 @@
-<p><%= link_to "Vote Up", question_votes_path(@votable, :up => true ), :method => :post %></p>
+<p>
+    <%= link_to "Vote Up", question_votes_path(@votable, :up => true ), :method => :post %>
+    <%= link_to "Vote Down", question_votes_path(@votable, :up => false ), :method => :post %>
+</p>
 <%= @votable.votes %>

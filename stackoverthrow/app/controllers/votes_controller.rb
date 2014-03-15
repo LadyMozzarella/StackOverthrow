@@ -5,10 +5,6 @@ class VotesController < ApplicationController
   end
 
   def new
-
-    # render partial: "vote"
-
-
   end
 
   def create
