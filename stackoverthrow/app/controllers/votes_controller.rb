@@ -9,8 +9,7 @@ class VotesController < ApplicationController
 
   def create
     load_votable
-    p params
-    
+    p @votable.votes.find_by_user_id(session[:id]).vote
     @vote = @votable.votes.new
     @vote.user_id = session[:id]
     @vote.vote = params[:up]

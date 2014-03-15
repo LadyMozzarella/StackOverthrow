@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe VotesController do
+  before(:each) do
+    @question_vote = FactoryGirl.create(:question_vote)
+    @question = @question_vote.vote
+  end
 
   let!(:question){ create :question }
   let!(:answer){ create :answer }
@@ -8,25 +12,28 @@ describe VotesController do
   let!(:vote){ Vote.new(votable_id: question.id,
                         votable_type: question,
                         user_id: user.id,
-                        vote: true
+                        vote: '1'
                          ) }
 
 
   describe "#create" do
     context "user logged in" do
 
-      # before :session[:id] = user.id
-
       it "should be able to vote on a question" do
+          p @question
+          new_vote = question.votes.create!(vote: '1', user_id:'1')
+          p new_vote
           expect {
-          post :create, :question_id => question.id, :vote => vote.vote
+          post :create, :vote => vote
           expect(response).to be_success
         }.to change{ Vote.count }.by(1)
       end
 
+      it "should not be able to vote the same twice on a question"
+       
 
       it "should be able to vote on an answer"
-      it "should not be able to vote twice on a question"
+      
       it "should not be able to vote twice on an answer"
     end
   end
