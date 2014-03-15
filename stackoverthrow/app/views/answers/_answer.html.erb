@@ -1,9 +1,20 @@
-<ul>
-  <% @answers.each do |answer| %>
-  <%= answer.text %>
-    <li>
-      <%= button_to "Edit Answer", edit_question_answer_path( @question, answer ), :method => :get %>
-      <%= button_to "Delete Answer", question_answer_path( @question, answer ), :method => :delete %>
-    </li>
-  <% end %>
-</ul>
+<div>
+  <ul class="answers">
+    <% @answers.each do |answer| %>
+      <li class="single_ans">
+          <h5><%= answer.text %></h5>
+          <ul class="edit_buttons">
+              <li>
+                <span class="question_user">Answered by: <span class="user"><%= answer.user.username %></span></span>
+              </li>
+              <li>
+                <%= button_to "Edit Answer", edit_question_answer_path( @question, answer ), :method => :get %>
+              </li>
+              <li>
+                <%= button_to "Delete Answer", question_answer_path( @question, answer ), :method => :delete %>
+              </li>
+          </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>
