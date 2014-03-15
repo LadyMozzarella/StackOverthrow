@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20140314183929) do
 
   create_table "answers", :force => true do |t|
     t.text    "text"
+    t.integer "vote_count",  :default => 0
     t.integer "question_id"
     t.integer "user_id"
   end
@@ -22,9 +23,10 @@ ActiveRecord::Schema.define(:version => 20140314183929) do
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.text     "text"
+    t.integer  "vote_count", :default => 0
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -35,10 +37,12 @@ ActiveRecord::Schema.define(:version => 20140314183929) do
   end
 
   create_table "votes", :force => true do |t|
-    t.integer "votable_id"
-    t.string  "votable_type"
-    t.integer "user_id"
-    t.boolean "vote"
+    t.integer  "up_down"
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end

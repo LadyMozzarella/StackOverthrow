@@ -19,8 +19,15 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    p params # this includes the votecount
+
     load_question
+    @votable = @question
+    @votable.user_id = session[:id]
     @answers = @question.answers
+    p '*' * 20
+    p @answers
+    @votes = @votable.votes
   end
 
   def edit
