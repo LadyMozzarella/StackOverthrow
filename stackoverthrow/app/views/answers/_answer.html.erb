@@ -2,6 +2,7 @@
   <ul class="answers">
     <% @answers.each do |answer| %>
       <li class="single_ans">
+        <%= render partial: 'votes/vote', locals: { votable: answer } %>
           <h5><%= answer.text %></h5>
           <ul class="edit_buttons">
               <li>
