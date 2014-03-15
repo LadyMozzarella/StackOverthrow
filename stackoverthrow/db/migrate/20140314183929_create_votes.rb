@@ -3,7 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.boolean :vote
       t.belongs_to :votable, polymorphic: true
-
+      t.belongs_to :user
       t.timestamps
     end
   end

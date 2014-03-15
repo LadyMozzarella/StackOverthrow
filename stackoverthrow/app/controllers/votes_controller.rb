@@ -6,19 +6,25 @@ class VotesController < ApplicationController
 
   def new
 
-    # render partial: "vote"
-
-
   end
 
   def create
     load_votable
     p params
     @vote = @votable.votes.new
-    @vote.user_id = session[:id]
+    @vote.user = current_user
+    @votable.user_id = session[:id]
     @vote.vote = params[:up]
-    p @vote
+
+    @votable.votes.each do |vote|
+      p vote
+      p @votable
+      p @votable
+      redirect_to(@votable) && return if vote.user_id == @vote.user_id
+    end
+
     @vote.save
+
 
     render partial: "vote"
   end
