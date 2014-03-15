@@ -8,7 +8,7 @@ describe VotesController do
   let!(:vote){ Vote.new(votable_id: question.id,
                         votable_type: question,
                         user_id: user.id,
-                        vote: true
+                        up_down: true
                          ) }
 
 
@@ -17,12 +17,12 @@ describe VotesController do
 
       # before :session[:id] = user.id
 
-      it "should be able to vote on a question" do
-          expect {
-          post :create, :question_id => question.id, :vote => vote.vote
-          expect(response).to be_success
-        }.to change{ Vote.count }.by(1)
-      end
+      # it "should be able to vote on a question" do
+      #     expect {
+      #     post :create, :question_id => question.id, :vote => vote.up_down
+      #     expect(response).to be_success
+      #   }.to change{ Vote.count }.by(1)
+      # end
 
 
       it "should be able to vote on an answer"
