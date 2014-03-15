@@ -5,25 +5,22 @@ class VotesController < ApplicationController
   end
 
   def new
-    load_votable
-    @vote = @votable.votes.new
+
+    # render partial: "vote"
+
+
   end
 
   def create
+    load_votable
+    p params
+    @vote = @votable.votes.new
+    @vote.user_id = session[:id]
+    @vote.vote = params[:up]
+    p @vote
+    @vote.save
 
-
-    # @question = Question.find(params[:question_id])
-
-    # if params[:vote]
-    #   @vote = Vote.create(votable_id: @question.id,
-    #         votable_type: @question, vote: true)
-    # else
-    #   @vote = Vote.create(votable_id: @question.id,
-    #         votable_type: @question, vote: false)
-    # end
-
-    # # redirect question_path
-    # render partial: "vote"
+    render partial: "vote"
   end
 
   def destroy
