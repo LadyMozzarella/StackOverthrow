@@ -7,14 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-brittany = User.new( username: "brittany", password: "mazza" )
-ivan = User.new( username: "ivan", password: "sued" )
-jose = User.new( username: "jose", password: "menor" )
-darren = User.new( username: "darren", password: "dahl" )
+brittany = User.create( username: "brittany", password: "mazza" )
+ivan = User.create( username: "ivan", password: "sued" )
+jose = User.create( username: "jose", password: "menor" )
+darren = User.create( username: "darren", password: "dahl" )
 
 3.times do
-  brittany.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
-  ivan.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
-  jose.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
-  darren.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
+  brittany.questions.create( title: Faker::Lorem.sentence, text: Faker::Lorem.sentence )
+  ivan.questions.create( title: Faker::Lorem.sentence, text: Faker::Lorem.sentence )
+  jose.questions.create( title: Faker::Lorem.sentence, text: Faker::Lorem.sentence )
+  darren.questions.create( title: Faker::Lorem.sentence, text: Faker::Lorem.sentence )
 end
