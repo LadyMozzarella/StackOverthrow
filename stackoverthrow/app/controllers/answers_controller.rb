@@ -6,12 +6,17 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(params[:answer])
+    if logged_in?
+      @answer = @question.answers.new params[:answer]
 
-    render(:new) && return unless @answer.save
+      unless (current_user.answers << @answer) && (@question.answers << @answer)
+        render(:new) && return
+      end
 
-    @question.answers << @answer
-    redirect_to question_path(@question)
+      redirect_to(question_path(@question)) && return
+    end
+
+    redirect_to new_user_path, flash: {errors: "Not logged in"}
   end
 
   def edit
@@ -21,9 +26,11 @@ class AnswersController < ApplicationController
   def update
     load_answer
 
-    render(:edit) && return unless @answer.update_attributes(params[:answer])
+    unless @answer.update_attributes(params[:answer]) && current_user.id == @answer.user_id
+      render(:edit) && return
+    end
 
-    redirect_to(question_path(@question))
+    redirect_to(question_path(@question)) && return
   end
 
   def destroy

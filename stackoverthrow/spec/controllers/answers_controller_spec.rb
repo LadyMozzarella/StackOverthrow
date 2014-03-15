@@ -3,6 +3,7 @@ require 'spec_helper'
 describe AnswersController do
   let!(:answer){ create :answer }
   let!(:question){ create :question }
+  let!(:user){ create :user }
 
   describe "#new" do
     it "should be successful" do
@@ -19,9 +20,9 @@ describe AnswersController do
   describe "#create" do
     context "with valid attributes" do
       it "should create an answer" do
+        session[:id] = user.id
         expect {
           post :create, :question_id => question.id, :answer => attributes_for(:answer)
-          expect(response).to be_redirect
         }.to change { Answer.count }.by(1)
       end
     end
@@ -30,7 +31,6 @@ describe AnswersController do
       it "shouldn't create an answer" do
         expect {
           post :create, :question_id => question.id, :answer => { text: nil }
-          expect(response).to_not be_redirect
         }.to_not change { Answer.count }
       end
     end
@@ -46,18 +46,18 @@ describe AnswersController do
   context "#update" do
     context "with valid attributes" do
       it "updates the attributes" do
+        session[:id] = user.id
         expect {
           put :update, :question_id => question.id, :id => answer.id, :answer => { text: "New Text" }
-          expect(response).to be_redirect
         }.to change{ answer.reload.text }.to ("New Text")
       end
     end
 
     context "with invalid attributes" do
       it "doesn't update the attributes" do
+        session[:id] = user.id
         expect {
           put :update, :question_id => question.id, :id => answer.id, :answer => { text: nil }
-          expect(response).to_not be_redirect
         }.to_not change{ answer.reload.text }
       end
     end
