@@ -23,7 +23,6 @@ class QuestionsController < ApplicationController
     p params # this includes the votecount
 
     load_question
-    debugger
     @votable = @question
     @votable.user_id = session[:id]
     @answers = @question.answers

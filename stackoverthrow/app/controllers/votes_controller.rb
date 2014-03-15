@@ -19,8 +19,6 @@ class VotesController < ApplicationController
 
     @number = 0
     @votable.votes.each{|vote| @number += vote.up_down }
-    @number
-
     redirect_to :controller => @votable.class.name.downcase + 's', :action => 'show', :id => @votable.id, votecount: @number
   end
 
