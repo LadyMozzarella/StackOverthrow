@@ -6,6 +6,7 @@ var Navigation = {
   },
   appendQuestion: function(){
     event.preventDefault();
+    
   }
   // showTab: function() {
   //   event.preventDefault();
@@ -23,5 +24,3 @@ var Navigation = {
 $(document).ready(function() {
   Navigation.bindEvents();
 })
-
-
