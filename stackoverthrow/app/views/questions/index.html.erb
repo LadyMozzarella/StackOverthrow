@@ -1,5 +1,8 @@
-<%= render 'shared/login:logout' %>
-<%= render 'form', :object => @question=Question.new  %>
+<% if session[:id] %>
+	<%= render 'form', :object => @question=Question.new  %>	
+<% else %>
+	<%= render 'shared/login_button' %>
+<% end %>
 <ul>
 <%= button_to "Ask a Question", new_question_path, :method => :get %>
 
