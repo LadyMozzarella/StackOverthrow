@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+brittany = User.new( username: "brittany", password: "mazza" )
+ivan = User.new( username: "ivan", password: "sued" )
+jose = User.new( username: "jose", password: "menor" )
+darren = User.new( username: "darren", password: "dahl" )
+
+3.times do
+  brittany.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
+  ivan.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
+  jose.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
+  darren.questions.create( title: Faker::Lorem.word, text: Faker::Lorem.sentence )
+end

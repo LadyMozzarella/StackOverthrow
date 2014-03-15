@@ -2,13 +2,23 @@
 <html>
 <head>
   <title>Stackoverthrow</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", "style", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <div id="navbar">
+    <h1>Stackoverthrow</h1>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <%= render 'shared/login:logout' %>
+    </ul>
+  </div>
 
-<%= yield %>
-
+  <div id="content_field">
+    <%= yield %>
+  </div>
 </body>
 </html>

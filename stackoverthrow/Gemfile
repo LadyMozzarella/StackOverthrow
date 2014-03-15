@@ -21,12 +21,12 @@ group :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
 
+gem 'faker'
 gem 'jquery-rails'
 gem 'debugger'
 gem 'bcrypt-ruby', '~> 3.0.0'
