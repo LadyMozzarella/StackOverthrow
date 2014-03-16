@@ -3,7 +3,6 @@
     <li><%= link_to image_tag('up.svg'), question_votes_path(votable, :up_down => 1 ), :method => :post %></li>
     <li class="count"><h6><%= votable.vote_count %></h6></li>
     <li><%= link_to image_tag('down.svg'), question_votes_path(votable, :up_down => -1 ), :method => :post %></li>
-
   <% else %>
     <li><%= link_to image_tag('up.svg'), answer_votes_path(votable, :up_down => 1 ), :method => :post %></li>
     <li class="count"><h6><%= votable.vote_count %></h6></li>
