@@ -9,9 +9,11 @@ Stackoverthrow::Application.routes.draw do
 
   resources :questions, only: [:create, :destroy] do
     resources :votes, only: [:create]
+    resources :comments, only: [:create, :new]
   end
 
   resources :answers, only: [:create, :destroy] do
     resources :votes, only: [:create]
+    resources :comments, only: [:create, :new]
   end
 end

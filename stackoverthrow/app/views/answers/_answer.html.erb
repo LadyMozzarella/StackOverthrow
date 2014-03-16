@@ -18,6 +18,9 @@
                 <%= button_to "Delete", question_answer_path( @question, answer ), :method => :delete %>
               </li>
             <% end %>
+            <li>
+              <span class="comment_button"><%= button_to "comment", new_question_comment_path(@question), {:method => :get, :class => "commentButton"} %></span>
+            <li>
           </ul>
       </li>
     <% end %>
