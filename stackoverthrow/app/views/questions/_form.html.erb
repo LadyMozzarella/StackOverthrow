@@ -1,7 +1,12 @@
-<%= form_for @question do |f| %>
-  <%= f.label :title  %>
-  <%= f.text_field :title  %>
-  <%= f.label :text  %>
-  <%= f.text_area :text  %>
-  <%= f.submit "Ask" %>
-<% end %>
+<div class= "ask_answer">
+  <ul>
+    <%= form_for @question do |f| %>
+      <li class="title_input"><%= f.label :title  %>
+      <%= f.text_field :title  %></li>
+      <li class="text_input"><%= f.label :text  %>
+      <%= f.text_area :text  %></li>
+      <li class="text_submit"><%= f.submit "Ask" %></li>
+    <% end %>
+  </ul>
+</div>
+
