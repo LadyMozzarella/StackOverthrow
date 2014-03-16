@@ -1,0 +1,5 @@
+<%= form_for [@commentable, @comment] do |f| %>
+	<%= f.label :opinion%>
+	<%= f.text_area :opinion%>
+	<%= f.submit 'comment', class: "submitComment" %>
+<% end %>
