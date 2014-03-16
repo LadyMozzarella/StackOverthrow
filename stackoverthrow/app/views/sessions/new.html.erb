@@ -1,10 +1,15 @@
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-<% end %>
-<%= form_tag  sessions_path do%>
-    <%= label_tag(:username, "Username") %>
-    <%= text_field_tag(:username) %>
-    <%= label_tag(:password, "Password") %>
-    <%= password_field_tag(:password) %>
-    <%= submit_tag("Login") %>
-<% end %>
+<div class="login_form">
+  <ul>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= form_tag  sessions_path do%>
+        <li><h4 class="label"><%= label_tag(:username, "Username") %></h4>
+        <span class="input_field"><%= text_field_tag(:username) %></span></li>
+        <li><h4 class="label"><%= label_tag(:password, "Password") %></h4>
+        <span class="input_field"><%= password_field_tag(:password) %></span></li>
+        <li> <span class="submit"><%= submit_tag("Login") %><span></li>
+    <% end %>
+  </ul>
+</div>
+
