@@ -310,3 +310,14 @@ input {
 .vote_count {
  float: right;
 }
+
+.voting li {
+  vertical-align: middle;
+  height: 33px;
+  padding-right: 5px;
+}
+
+.count h6 {
+  margin: 0;
+  margin-top: 5px;
+}
