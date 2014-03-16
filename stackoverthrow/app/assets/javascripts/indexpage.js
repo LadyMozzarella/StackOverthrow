@@ -6,12 +6,12 @@ var Navigation = {
   
   appendLoginForm: function(evt, data){
     var form = $(data).find('form');
-    $('.login_btn').append(form);
+    $('.login_btn').after(form);
   },
 
   appendSignUp: function(evt, data){
     var form = $(data).find('form');
-    $('.signup_btn').append(form);
+    $('.signup_btn').after(form);
   }
 };
 
