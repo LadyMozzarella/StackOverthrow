@@ -8,10 +8,10 @@ Stackoverthrow::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :questions, only: [:create, :destroy] do
-    resources :votes, only: [:new, :create, :destroy]
+    resources :votes, only: [:create, :destroy]
   end
 
   resources :answers, only: [:create, :destroy] do
-    resources :votes, only: [:new, :create, :destroy]
+    resources :votes, only: [:create, :destroy]
   end
 end
