@@ -1,6 +1,10 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all.sort! {|a,b| b.vote_count <=>  a.vote_count}
+    if params[:search]
+      @questions = Question.where("title like ?", "%#{params[:search]}%")
+    else
+      @questions = Question.all.sort! {|a,b| b.vote_count <=>  a.vote_count}
+    end
   end
 
   def new
