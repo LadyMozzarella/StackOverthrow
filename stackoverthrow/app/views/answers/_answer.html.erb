@@ -2,9 +2,11 @@
   <ul class="answers">
     <% @answers.each do |answer| %>
       <li class="single_ans">
-        <%= render partial: 'votes/vote', locals: { votable: answer } %>
           <h5><%= answer.text %></h5>
           <ul class="edit_buttons">
+            <li>
+              <%= render partial: 'votes/vote', locals: { votable: answer } %>
+            </li>
             <li>
               <span class="question_user">Answered by: <span class="user"><%= answer.user.username %></span></span>
             </li>
