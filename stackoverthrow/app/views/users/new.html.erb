@@ -1,12 +1,15 @@
 <%= render 'shared/errors', :object => @user %>
 <%= render 'shared/flash', :flash => flash %>
-
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit %>
-<% end %>
+<div class="login_form">
+  <ul>
+    <%= form_for @user do |f| %>
+      <li><h4 class="label"><%= f.label :username %></h4>
+      <span class="input_field"><%= f.text_field :username %></span></li>
+      <li><h4 class="label"><%= f.label :password %></h4>
+      <span class="input_field"><%= f.password_field :password %></span></li>
+      <li><h4 class="label"><%= f.label :password_confirmation %></h4>
+      <span class="input_field"><%= f.password_field :password_confirmation %></span></li>
+      <li> <span class="submit"><%= f.submit %><span></li>
+    <% end %>
+  </ul>
+</div>
