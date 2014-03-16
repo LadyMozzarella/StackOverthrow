@@ -6,7 +6,6 @@ class VotesController < ApplicationController
 
 
   def create
-
     load_votable
     redirect_to(new_user_path) && return unless logged_in?
 
