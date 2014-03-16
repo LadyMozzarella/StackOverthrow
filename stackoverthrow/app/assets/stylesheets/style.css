@@ -233,6 +233,11 @@ a {
 .input_field input {
   width: 200px;
   height: 40px;
+  color: white;
+  background-color: black;
+  border: gray double;
 }
 
-
+.login_form input[type="submit"] {
+  background-color: black;
+}
