@@ -105,9 +105,15 @@ a {
   font-weight: bold;
 }
 
-.user {
+.all_qs ul li .question_user span a{
   color: red;
   font-weight: none;
+  font-size: 1em;
+  display: inherit;
+}
+
+.all_qs ul li .question_user span a:hover {
+  color: black;
 }
 
 .question {
