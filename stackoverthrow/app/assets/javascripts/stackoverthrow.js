@@ -22,7 +22,6 @@ StackOverthrow.Binder.prototype = {
     var controller = this.controller
     $(this.sel.submitAnswerButtonSelector).on('ajax:success', function(e, data){
       e.preventDefault();
-      console.log(data)
       controller.submitAnswerEvent(e);
     });
   }
@@ -61,7 +60,6 @@ StackOverthrow.Controller.prototype = {
 
   answerFormEvent: function(e, data){
     var $form = $(data).find('.answerForm')
-    console.log($form.get(0))
     $('.answersContainer').before($form.html());
   },
 
@@ -83,14 +81,10 @@ $(document).ready(function(){
     answerFormContainerSelector: ".answerFormContainer",
     answersContainerSelector: ".answersContainer",
     questionContainerSelector: ".question"
-  }
+  };
 
   StackOverthrow.view = new StackOverthrow.View(Selectors);
-  StackOverthrow.controller = new StackOverthrow.Controller(StackOverthrow.view)
-  new StackOverthrow.Binder(Selectors, StackOverthrow.controller).bindEvents()
+  StackOverthrow.controller = new StackOverthrow.Controller(StackOverthrow.view);
+  new StackOverthrow.Binder(Selectors, StackOverthrow.controller).bindEvents();
 
 });
-
-
-
-
