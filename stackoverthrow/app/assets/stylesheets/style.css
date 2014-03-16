@@ -13,8 +13,8 @@ body {
   float: left;
   width: 100%;
   position: fixed;
-  background-image: url(http://www.tristangreszko.com/blog/wp-content/uploads/2010/12/blog_sandiego_10.jpg);
-  border-bottom: black thin solid;
+  background-image: url(nav_bar.jpg);
+  border-bottom: #b20000 solid;
 }
 
 #navbar ul {
@@ -41,7 +41,7 @@ body {
 }
 
 #navbar a:hover {
-  color: red;
+  color: #b20000;
 }
 
 #navbar h1 {
