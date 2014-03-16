@@ -221,6 +221,10 @@ a {
   list-style: none;
 }
 
+.login_form ul {
+  display: block;
+}
+
 .label {
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
@@ -277,4 +281,12 @@ a {
 
 .ask_answer ul li textarea {
   height: 150px;
+}
+
+input {
+  background: black;
+}
+
+.submit {
+  display: block;
 }
