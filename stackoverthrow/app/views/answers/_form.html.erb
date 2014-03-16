@@ -1,8 +1,8 @@
 <div class="answerForm ask_answer">
-  <ul>
+  <ul class="answer_form_list">
     <%= form_for [@question, @answer] do |f| %>
-      <li class="text_input"><%= f.label :text  %>
-      <%= f.text_area :text  %></li>
+      <li class="text_input"><h4><%= f.label :text  %>
+      <%= f.text_area :text  %></h4></li>
       <li class="text_submit"><%= f.submit "Answer", :class => "submitAnswer" %></li>
     <% end %>
   </ul>

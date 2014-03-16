@@ -264,11 +264,24 @@ a {
   width: 600px;
   color: white;
   font-size: 1em;
-  height: 150px;
 }
 
 .text_submit input[type="submit"]{
   width: 100px;
+}
+
+.text_submit, .text_input {
+  width: 600px;
+  margin: auto;
+  list-style: none;
+}
+
+.answerForm {
+  margin-top: 20px;
+}
+
+.text_input textarea {
+  height: 150px;
 }
 
 #question_text {
@@ -279,14 +292,14 @@ a {
   margin: 0;
 }
 
-.ask_answer ul li textarea {
-  height: 150px;
-}
-
 input {
   background: black;
 }
 
 .submit {
   display: block;
+}
+
+.answer_form_list {
+  margin-top: 20px;
 }
