@@ -1,16 +1,16 @@
-<ul>
-  <li><%= @user.username %><br></li>
-  <li>Joined <%= @user.created_at %></li>
-  <br>
-  <li>Questions Asked: <br> <% @user.questions.each do |question| %>
-                    <%= link_to question.title, question_path(question) %> <br>
-                            <% end  %>
-                            <br><br>
-  </li>
-
-
-  <li>Answers to Questions: <br> <% @user.answers.each do |answer| %>
-                    <%= link_to answer.question.title, question_path(answer.question) %> <br>
-                            <% end  %></li><br>
-  <li>Number of Votes: <%= @votes.length  %></li>
-</ul>
+<div class="user_profile">
+  <ul>
+    <li><span class="username"><h1><%= @user.username %></h1></span></li>
+    <li><h3>Joined on <%= @user.created_at.to_date %></h3></li>
+    <br>
+    <li>Questions Asked:
+      <% @user.questions.each do |question| %>
+        <span class="q_a_link"><%= link_to question.title, question_path(question) %> </span>
+      <% end  %>
+    </li>
+    <li>Answers to Questions:
+      <% @user.answers.each do |answer| %>
+        <span class="q_a_link"><%= link_to answer.question.title, question_path(answer.question) %></span>
+        <% end %></li>
+  </ul>
+</div>
