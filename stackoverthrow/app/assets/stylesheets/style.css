@@ -7,6 +7,14 @@ body {
   font-family: 'Droid Serif', serif;
 }
 
+a {
+  color: red;
+}
+
+a:hover {
+  color: black;
+}
+
 #navbar {
   background-color: black;
   height: 100px;
@@ -103,6 +111,10 @@ a {
 .question_user {
   float: right;
   font-weight: bold;
+}
+
+.question_user .user a {
+  display: inherit;
 }
 
 .all_qs ul li .question_user span a{
