@@ -8,7 +8,6 @@ class VotesController < ApplicationController
   def create
     load_votable
     redirect_to(new_user_path) && return unless logged_in?
-
     @vote = Vote.new
     path = @vote.get_redirect_path(@votable)
     redirect_to(path) && return if @votable.votes.find_by_user_id(current_user.id)
