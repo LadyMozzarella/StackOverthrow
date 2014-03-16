@@ -1,6 +1,6 @@
 <div class= "ask_answer">
   <ul>
-    <%= form_for @question, remote: true do |f| %>
+    <%= form_for @question do |f| %>
       <li class="title_input"><%= f.label :title  %>
       <%= f.text_field :title  %></li>
       <li class="text_input"><%= f.label :text  %>
@@ -9,3 +9,4 @@
     <% end %>
   </ul>
 </div>
+

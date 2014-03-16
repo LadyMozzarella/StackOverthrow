@@ -1,26 +1,20 @@
 var Navigation = {
   bindEvents: function() {
-    $('.login_btn').on('submit', this.appendQuestion);
-    // $('.nav-tabs.units').on('click', 'li a', this.showTab);
-    // $('.nav-tabs.content').on('click', 'li a', this.showContent);
+    $('.login_btn').bind('ajax:success', this.appendLoginForm);
+    $('.signup_btn').bind('ajax:success', this.appendSignUp);
   },
-  appendQuestion: function(){
-    event.preventDefault();
-    alert("yay")
-  }
-  // showTab: function() {
-  //   event.preventDefault();
-  //   $('.tab-pane').removeClass('active');
-  //   var contentLink = $(this).data('toggle');
-  //   $(contentLink).addClass('active');
-  // },
+  
+  appendLoginForm: function(evt, data){
+    var form = $(data).find('form');
+    $('.login_btn').append(form);
+  },
 
-  // showContent: function() {
-  //   event.stopPropagation();
-  //   $(this).siblings('.challenge-content').toggleClass('hidden');
-  // }
-}
+  appendSignUp: function(evt, data){
+    var form = $(data).find('form');
+    $('.signup_btn').append(form);
+  }
+};
 
 $(document).ready(function() {
   Navigation.bindEvents();
-})
+});
