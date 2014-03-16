@@ -13,6 +13,8 @@ body {
   float: left;
   width: 100%;
   position: fixed;
+  background-image: url(nav_bar.jpg);
+  border-bottom: #b20000 solid;
 }
 
 #navbar ul {
@@ -32,13 +34,14 @@ body {
 }
 
 #navbar a {
-  color: white;
+  color: black;
+  font-weight: 900;
   text-decoration: none;
   vertical-align: center;
 }
 
 #navbar a:hover {
-  color: red;
+  color: #b20000;
 }
 
 #navbar h1 {
@@ -221,6 +224,10 @@ a {
   list-style: none;
 }
 
+.login_form ul {
+  display: block;
+}
+
 .label {
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
@@ -260,11 +267,24 @@ a {
   width: 600px;
   color: white;
   font-size: 1em;
-  height: 150px;
 }
 
 .text_submit input[type="submit"]{
   width: 100px;
+}
+
+.text_submit, .text_input {
+  width: 600px;
+  margin: auto;
+  list-style: none;
+}
+
+.answerForm {
+  margin-top: 20px;
+}
+
+.text_input textarea {
+  height: 150px;
 }
 
 #question_text {
@@ -275,6 +295,18 @@ a {
   margin: 0;
 }
 
-.ask_answer ul li textarea {
-  height: 150px;
+input {
+  background: black;
+}
+
+.submit {
+  display: block;
+}
+
+.answer_form_list {
+  margin-top: 20px;
+}
+
+.vote_count {
+ float: right;
 }
