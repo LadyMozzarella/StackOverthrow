@@ -2,6 +2,7 @@ development:
   adapter: postgresql
   database: stackoverthrow_development
 
+
 test:
   adapter: postgresql
   database: stackoverthrow_test
