@@ -11,5 +11,5 @@
     </li>
   </ul>
 
-  <span class="answer_button"><%= button_to "Answer", new_question_answer_path(@question), {:method => :get, :class => "answerButton"} %></span>
+  <span class="answer_button"><%= button_to "Answer", new_question_answer_path(@question), {:method => :get, :remote => true, :class => "answerButton"} %></span>
 </div>

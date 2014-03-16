@@ -15,16 +15,14 @@ StackOverthrow.Binder.prototype = {
 
   bindAnswerButton: function(){
     var controller = this.controller
-    $(this.sel.answerButtonSelector).on('click', function(e){
-      e.preventDefault();
-      controller.answerFormEvent(e);
-    });
+    $('.button_to').bind('ajax:success', controller.answerFormEvent);
   },
 
   bindSubmitAnswerButton: function(){
     var controller = this.controller
-    $(this.sel.submitAnswerButtonSelector).on('click', function(e){
+    $(this.sel.submitAnswerButtonSelector).on('ajax:success', function(e, data){
       e.preventDefault();
+      console.log(data)
       controller.submitAnswerEvent(e);
     });
   }
@@ -41,8 +39,8 @@ StackOverthrow.View = function(sel){
 
 StackOverthrow.View.prototype = {
 
-  answerQuestionForm: function(e){
-     e.preventDefault()
+  answerQuestionForm: function(data){
+
   },
 
   updateQuestionAnswers: function(e){
@@ -56,13 +54,15 @@ StackOverthrow.View.prototype = {
 //controller
 
 StackOverthrow.Controller = function(view){
-  this.view = view
+  this.view = view;
 }
 
 StackOverthrow.Controller.prototype = {
 
-  answerFormEvent: function(e){
-    console.log(e)
+  answerFormEvent: function(e, data){
+    var $form = $(data).find('.answerForm')
+    console.log($form.get(0))
+    $('.answersContainer').before($form.html());
   },
 
   submitAnswerEvent: function(e){
