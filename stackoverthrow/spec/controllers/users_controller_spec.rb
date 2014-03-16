@@ -11,6 +11,11 @@ describe UsersController do
       get :show , id: user.id
       expect(response.body).to include(user.username)
     end
+
+    it "should assign user votes for profile" do
+        get :show, id: user.id
+        expect(assigns(:votes)).to eq([])
+    end
   end
 
   describe '#new' do
