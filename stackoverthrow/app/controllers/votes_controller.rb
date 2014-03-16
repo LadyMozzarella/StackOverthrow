@@ -1,10 +1,5 @@
 class VotesController < ApplicationController
 
-  def index
-    @votes = @votable.votes
-  end
-
-
   def create
     load_votable
     redirect_to(new_user_path) && return unless logged_in?
@@ -16,9 +11,6 @@ class VotesController < ApplicationController
     @vote = @votable.votes.create(user_id: current_user.id, up_down: up_or_down)
     @vote.update_votable_count(@votable, up_or_down)
     redirect_to(path)
-  end
-
-  def destroy
   end
 
   private
