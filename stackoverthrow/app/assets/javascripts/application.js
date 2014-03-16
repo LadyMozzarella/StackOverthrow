@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$('.vote_up_question').bind('ajax:success', function() {
+    $(this).css("color", "red");
+});

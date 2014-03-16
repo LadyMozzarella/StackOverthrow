@@ -1,6 +1,6 @@
 <p>Votes: <%= votable.vote_count %></p>
 <% if votable.class.name == "Question" %>
-  <p><%= link_to "Vote Up", question_votes_path(votable, :up_down => 1 ), :method => :post %></p>
+  <p><%= link_to "Vote Up", question_votes_path(votable, :up_down => 1 ), :method => :post, :remote=>true, :class=>'vote_up_question' %></p>
   <p><%= link_to "Vote Down", question_votes_path(votable, :up_down => -1 ), :method => :post %></p>
 <% else %>
   <p><%= link_to "Vote Up", answer_votes_path(votable, :up_down => 1 ), :method => :post %></p>

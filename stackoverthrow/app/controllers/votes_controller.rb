@@ -25,11 +25,16 @@ class VotesController < ApplicationController
     @vote.up_down = params[:up_down]
     @vote.save
 
-    if @votable.class.name == "Question"
-      redirect_to(@votable)
-    else
-      redirect_to(@votable.question)
+    respond_to do |format|
+      format.html { redirect_to @votable }
+      format.js
     end
+
+    # if @votable.class.name == "Question"
+    #   redirect_to(@votable)
+    # else
+    #   redirect_to(@votable.question)
+    # end
 
   end
 
