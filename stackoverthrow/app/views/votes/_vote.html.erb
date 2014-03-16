@@ -1,10 +1,12 @@
-<p>Votes: <%= votable.vote_count %></p>
+<ul class="voting">
+  <% if votable.class.name == "Question" %>
+    <li><%= link_to image_tag('up.svg'), question_votes_path(votable, :up_down => 1 ), :method => :post %></li>
+    <li class="count"><h6><%= votable.vote_count %></h6></li>
+    <li><%= link_to image_tag('down.svg'), question_votes_path(votable, :up_down => -1 ), :method => :post %></li>
 
-<% if votable.class.name == "Question" %>
-  <p><%= link_to "Vote Up", question_votes_path(votable, :up_down => 1 ), :method => :post %></p>
-  <p><%= link_to "Vote Down", question_votes_path(votable, :up_down => -1 ), :method => :post %></p>
-
-<% else %>
-  <p><%= link_to "Vote Up", answer_votes_path(votable, :up_down => 1 ), :method => :post %></p>
-  <p><%= link_to "Vote Down", answer_votes_path(votable, :up_down => -1 ), :method => :post %></p>
-<% end %>
+  <% else %>
+    <li><%= link_to image_tag('up.svg'), answer_votes_path(votable, :up_down => 1 ), :method => :post %></li>
+    <li class="count"><h6><%= votable.vote_count %></h6></li>
+    <li><%= link_to image_tag('down.svg'), answer_votes_path(votable, :up_down => -1 ), :method => :post %></li>
+  <% end %>
+</ul>
