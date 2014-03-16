@@ -10,6 +10,7 @@
       <li><%= button_to "Edit", edit_question_path(@question), {:method => :get, :class => "editQuestionButton"} %>
       </li>
     </ul>
+    <span class="question_user">Asked by: <span class="user"><%= link_to @question.user.username, user_path(@question.user) %></span></span>
   <% end %>
   <span class="answer_button"><%= button_to "Answer", new_question_answer_path(@question), {:method => :get, :remote => true, :class => "answerButton"} %></span>
 </div>
