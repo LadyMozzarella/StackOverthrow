@@ -1,6 +1,6 @@
 <div class="answersContainer">
   <ul class="answers">
-    <% @answers.sort! {|a,b| b.vote_count <=>  a.vote_count}.each do |answer| %>
+    <% @answers.each do |answer| %>
       <li class="single_ans">
           <h5><%= answer.text %></h5>
           <ul class="edit_buttons">
@@ -8,14 +8,14 @@
               <%= render partial: 'votes/vote', locals: { votable: answer } %>
             </li>
             <li>
-              <span class="question_user">Answered by: <span class="user"><%= answer.user.username %></span></span>
+              <span class="question_user">Answered by: <span class="user"><%= link_to answer.user.username, user_path(answer.user) %></span></span>
             </li>
               <% if !!session[:id] && (session[:id] == answer.user_id) %>
               <li>
-                <%= button_to "Edit Answer", edit_question_answer_path( @question, answer ), :method => :get %>
+                <%= button_to "Edit", edit_question_answer_path( @question, answer ), :method => :get %>
               </li>
               <li>
-                <%= button_to "Delete Answer", question_answer_path( @question, answer ), :method => :delete %>
+                <%= button_to "Delete", question_answer_path( @question, answer ), :method => :delete %>
               </li>
             <% end %>
             <li>
