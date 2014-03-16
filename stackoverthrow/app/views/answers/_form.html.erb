@@ -1,5 +1,7 @@
-<%= form_for [@question, @answer] do |f| %>
-  <%= f.label :text  %>
-  <%= f.text_area :text  %>
-  <%= f.submit "Answer" %>
-<% end %>
+<div class= "answerForm">
+  <%= form_for [@question, @answer] do |f| %>
+    <%= f.label :text  %>
+    <%= f.text_area :text  %>
+    <%= f.submit "Answer", :class => "submitAnswer" %>
+  <% end %>
+</div>
