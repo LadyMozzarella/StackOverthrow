@@ -56,6 +56,10 @@ body {
   padding-top: 130px;
 }
 
+#content_field ul {
+  padding-left: 0;
+}
+
 input {
   background-color: gray;
   color: white;
@@ -174,7 +178,61 @@ a {
   padding-right: 10px;
 }
 
+.login_or_signup {
+  width: 330px;
+  margin: auto;
+  text-align: center;
+  list-style: none;
+  height: 80px;
+}
 
+.login_or_signup li {
+  float: left;
+  width: 100px;
+  height: 100px;
+  display: inline;
+  padding-right: 10px;
+}
 
+.login_or_signup li a {
+  font-family: 'Shadows Into Light', cursive;
+  color: red;
+  font-size: 2em;
+  background: none;
+  border: none;
+}
+
+.login_or_signup li a:hover {
+  color: #b20000;
+}
+
+.or {
+  line-height: 60px;
+  vertical-align: center;
+  font-family: 'Droid Serif', serif;
+  font-size: 2em;
+}
+
+.login_form {
+  width: 200px;
+  margin: auto;
+}
+
+.login_form ul {
+  list-style: none;
+}
+
+.label {
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2em;
+  color: red;
+  margin: 0;
+}
+
+.input_field input {
+  width: 200px;
+  height: 40px;
+}
 
 
