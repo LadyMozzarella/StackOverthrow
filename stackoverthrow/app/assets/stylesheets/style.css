@@ -241,3 +241,16 @@ a {
 .login_form input[type="submit"] {
   background-color: black;
 }
+
+.ask_answer {
+  width: 600px;
+  margin: auto;
+}
+
+.ask_answer ul {
+  list-style: none;
+}
+
+.ask_answer ul li {
+
+}
