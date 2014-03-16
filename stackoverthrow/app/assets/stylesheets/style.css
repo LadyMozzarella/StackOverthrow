@@ -252,8 +252,21 @@ a {
 }
 
 .ask_answer ul li {
-
+  text-align: center;
 }
 
-.ask_answer ul li {
+.ask_answer ul li input, textarea {
+  background-color: gray;
+  border: double black;
+  width: 600px;
+  color: white;
+  font-size: 1em;
+}
+
+.text_submit input[type="submit"]{
+  width: 100px;
+}
+
+.ask_answer ul li .title_input {
+
 }
