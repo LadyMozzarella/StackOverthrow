@@ -270,3 +270,15 @@ a {
 .ask_answer ul li .title_input {
 
 }
+
+#question_text {
+  height: 100px;
+}
+
+.ask_answer h4 {
+  margin: 0;
+}
+
+.ask_answer ul li textarea {
+  height: 150px;
+}
