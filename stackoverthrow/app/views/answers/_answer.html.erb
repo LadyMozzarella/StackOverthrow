@@ -5,15 +5,17 @@
         <%= render partial: 'votes/vote', locals: { votable: answer } %>
           <h5><%= answer.text %></h5>
           <ul class="edit_buttons">
-              <li>
-                <span class="question_user">Answered by: <span class="user"><%= answer.user.username %></span></span>
-              </li>
+            <li>
+              <span class="question_user">Answered by: <span class="user"><%= answer.user.username %></span></span>
+            </li>
+              <% if session[:id] && (session[:id] == @question.id) %>
               <li>
                 <%= button_to "Edit Answer", edit_question_answer_path( @question, answer ), :method => :get %>
               </li>
               <li>
                 <%= button_to "Delete Answer", question_answer_path( @question, answer ), :method => :delete %>
               </li>
+            <% end %>
           </ul>
       </li>
     <% end %>
