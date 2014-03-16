@@ -8,6 +8,7 @@
   <ul class="questions">
      <% @questions.each do |question| %>
       <li>
+        <span class="vote_count"><%= @question.vote_count %></span>
         <span class="question_link"><%= link_to question.title, question_path(question) %></span>
         <span class="question_user">Asked by: <span class="user"><%= question.user.username %></span></span>
       </li>

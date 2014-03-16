@@ -306,3 +306,7 @@ input {
 .answer_form_list {
   margin-top: 20px;
 }
+
+.vote_count {
+ float: right;
+}
