@@ -13,6 +13,8 @@ body {
   float: left;
   width: 100%;
   position: fixed;
+  background-image: url(http://www.tristangreszko.com/blog/wp-content/uploads/2010/12/blog_sandiego_10.jpg);
+  border-bottom: black thin solid;
 }
 
 #navbar ul {
@@ -32,7 +34,8 @@ body {
 }
 
 #navbar a {
-  color: white;
+  color: black;
+  font-weight: 900;
   text-decoration: none;
   vertical-align: center;
 }
