@@ -4,8 +4,7 @@
   <p><%= @question.text %></p>
     <ul class="edit_buttons">
       <li></li>
-      <!-- I don't know why this doesn't work with @question.user_id ... ugh -->
-      <% if !!session[:id] && session[:id] == Question.find(@question.id).user_id %>
+      <% if !!session[:id] && session[:id] == @question.user_id %>
         <li>
           <%= button_to "Delete", question_path, {:method => :delete, :class => "deleteQuestionButton"} %>
         </li>
