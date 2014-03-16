@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.all.sort! {|a,b| b.vote_count <=>  a.vote_count}
   end
 
   def new
@@ -19,14 +19,10 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    p params # this includes the votecount
-
     load_question
     @votable = @question
     @votable.user_id = session[:id]
-    @answers = @question.answers
-    p '*' * 20
-    p @answers
+    @answers = @question.answers.sort! {|a,b| b.vote_count <=>  a.vote_count}
     @votes = @votable.votes
   end
 

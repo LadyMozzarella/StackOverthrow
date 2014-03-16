@@ -10,7 +10,7 @@
             <li>
               <span class="question_user">Answered by: <span class="user"><%= answer.user.username %></span></span>
             </li>
-              <% if session[:id] && (session[:id] == @question.id) %>
+              <% if !!session[:id] && (session[:id] == answer.user_id) %>
               <li>
                 <%= button_to "Edit Answer", edit_question_answer_path( @question, answer ), :method => :get %>
               </li>

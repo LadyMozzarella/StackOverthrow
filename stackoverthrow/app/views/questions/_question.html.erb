@@ -2,14 +2,14 @@
   <%= render partial: 'votes/vote', locals: { votable: @question } %>
   <h3><%= @question.title %></h3>
   <p><%= @question.text %></p>
-<% if session[:id] && (session[:id] == @question.id) %>
-  <ul class="edit_buttons">
-    <li>
-      <%= button_to "Delete", question_path, {:method => :delete, :class => "deleteQuestionButton"} %>
-    </li>
-    <li><%= button_to "Edit", edit_question_path(@question), {:method => :get, :class => "editQuestionButton"} %>
-    </li>
-  </ul>
-<% end %>
+  <% if !!session[:id] && (session[:id] == @question.user_id) %>
+    <ul class="edit_buttons">
+      <li>
+        <%= button_to "Delete", question_path, {:method => :delete, :class => "deleteQuestionButton"} %>
+      </li>
+      <li><%= button_to "Edit", edit_question_path(@question), {:method => :get, :class => "editQuestionButton"} %>
+      </li>
+    </ul>
+  <% end %>
   <span class="answer_button"><%= button_to "Answer", new_question_answer_path(@question), {:method => :get, :remote => true, :class => "answerButton"} %></span>
 </div>
