@@ -21,7 +21,6 @@ class QuestionsController < ApplicationController
   def show
     load_question
     @votable = @question
-    @votable.user_id = session[:id]
     @answers = @question.answers
     @votes = @votable.votes
   end

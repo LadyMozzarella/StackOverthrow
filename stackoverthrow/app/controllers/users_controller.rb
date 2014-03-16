@@ -16,7 +16,9 @@ class UsersController < ApplicationController
   end
 
   def show
+
     redirect_to new_user_path unless session[:id]
     @user = User.find(params[:id])
+    @votes = Vote.where(user_id: @user.id)
   end
 end
