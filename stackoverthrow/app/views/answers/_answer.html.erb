@@ -1,6 +1,6 @@
 <div class="answersContainer">
   <ul class="answers">
-    <% @answers.each do |answer| %>
+    <% @answers.sort! {|a,b| b.vote_count <=>  a.vote_count}.each do |answer| %>
       <li class="single_ans">
           <h5><%= answer.text %></h5>
           <ul class="edit_buttons">

@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
     load_question
     @votable = @question
     @votable.user_id = session[:id]
-    @answers = @question.answers.sort! {|a,b| b.vote_count <=>  a.vote_count}
+    @answers = @question.answers
     @votes = @votable.votes
   end
 
