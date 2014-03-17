@@ -9,6 +9,8 @@ class VotesController < ApplicationController
 
     up_or_down = params[:up_down].to_i
     @vote = @votable.votes.create(user_id: current_user.id, up_down: up_or_down)
+
+    @votable.user.update_reputation(@vote)
     @vote.update_votable_count(@votable, up_or_down)
     redirect_to(path)
   end
