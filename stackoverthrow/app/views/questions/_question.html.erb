@@ -16,7 +16,8 @@
 
   <span class="comment_button"><%= button_to "comment", new_question_comment_path(@question), {:method => :get, :remote => true, :class => "commentButton"} %></span>
 
-    <span class="question_user">Asked by: <span class="user"><%= link_to @question.user.username, user_path(@question.user) %></span></span>
-
-    <%= render partial: 'shared/comments', locals: {commentable: @question} %>
+  <span class="question_user">Asked by: <span class="user"><%= link_to @question.user.username, user_path(@question.user) %></span></span>
+</div>
+<div class="question_comments">
+  <p class="comments"><%= render partial: 'shared/comments', locals: {commentable: @question} %></p>
 </div>

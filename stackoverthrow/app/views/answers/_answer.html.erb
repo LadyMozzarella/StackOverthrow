@@ -2,8 +2,7 @@
   <ul class="answers">
     <% @answers.each do |answer| %>
       <li class="single_ans">
-          <h5><%= answer.text %></h5>
-          <ul class="edit_buttons">
+        <ul class="edit_buttons">
             <li>
               <%= render partial: 'votes/vote', locals: { votable: answer } %>
             </li>
@@ -21,10 +20,12 @@
             <li>
               <span class="comment_button"><%= button_to "comment", new_answer_comment_path(answer), {:method => :get, remote: true, :class => "commentButton"} %></span>
             <li>
+
           </ul>
+          <h5><%= answer.text %></h5>
+
+        <%= render partial: 'shared/comments', locals: {commentable: answer} %>
       </li>
-      
-      <%= render partial: 'shared/comments', locals: {commentable: answer} %>
     <% end %>
   </ul>
 </div>
