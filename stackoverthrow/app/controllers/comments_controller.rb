@@ -5,18 +5,23 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@commentable = load_commentable
-		@comment = @commentable.comments.build(params[:comment])
-		@comment.user_id=session[:id]
-		if @comment.save
-			flash[:notice] = "Successfully created comment."
-			if @commentable.class.name == "Answer"
-				redirect_to @commentable.question
+
+		if logged_in?
+			@commentable = load_commentable
+			@comment = @commentable.comments.build(params[:comment])
+			@comment.user_id=session[:id]
+			if @comment.save
+				flash[:notice] = "Successfully created comment."
+				if @commentable.class.name == "Answer"
+					redirect_to @commentable.question
+				else
+					redirect_to @commentable
+				end
 			else
-				redirect_to @commentable
+				render :action => 'new'
 			end
-		else
-			render :action => 'new'
+		else 
+			redirect_to new_session_path, flash: {errors: "Not logged in"}
 		end
 	end
 
