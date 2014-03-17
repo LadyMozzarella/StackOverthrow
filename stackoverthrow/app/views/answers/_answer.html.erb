@@ -2,14 +2,16 @@
   <ul class="answers">
     <% @answers.each do |answer| %>
       <li class="single_ans">
-          <h5><%= answer.text %></h5>
-          <ul class="edit_buttons">
+        <ul class="edit_buttons">
             <li>
               <%= render partial: 'votes/vote', locals: { votable: answer } %>
             </li>
+
             <li>
               <span class="question_user">Answered by: <span class="user"><%= link_to answer.user.username, user_path(answer.user) %></span></span>
             </li>
+
+
               <% if !!session[:id] && (session[:id] == answer.user_id) %>
               <li>
                 <%= button_to "Edit", edit_question_answer_path( @question, answer ), :method => :get %>
@@ -21,10 +23,12 @@
             <li>
               <span class="comment_button"><%= button_to "comment", new_answer_comment_path(answer), {:method => :get, :class => "commentButton"} %></span>
             <li>
+
           </ul>
+          <h5><%= answer.text %></h5>
+
+        <%= render partial: 'shared/comments', locals: {commentable: answer} %>
       </li>
-      
-      <%= render partial: 'shared/comments', locals: {commentable: answer} %>
     <% end %>
   </ul>
 </div>

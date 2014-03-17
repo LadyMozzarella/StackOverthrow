@@ -1,5 +1,7 @@
-<ul>
-<% commentable.comments.each do |comment| %>
-	<li><span><%= comment.opinion %></span><span><%= comment.user.username %></span></li>
-<% end %>
-</ul>
+<div class="commentable">
+  <ul>
+  <% commentable.comments.each do |comment| %>
+  	<li><span class="opinion"><%= comment.opinion %></span> - <span class="username"><%= comment.user.username %></span></li>
+  <% end %>
+  </ul>
+</div>
