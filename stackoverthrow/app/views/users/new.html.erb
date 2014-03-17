@@ -1,7 +1,7 @@
-<div class="login_form">
-  <ul>
 <%= render 'shared/errors', :object => @user %>
 <%= render 'shared/flash', :flash => flash %>
+<div class="login_form">
+  <ul>
     <%= form_for @user do |f| %>
       <li><h4 class="label"><%= f.label :username %></h4>
       <span class="input_field"><%= f.text_field :username %></span></li>
