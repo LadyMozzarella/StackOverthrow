@@ -1,1 +1,5 @@
-####Comments in here
+<ul>
+<% commentable.comments.each do |comment| %>
+	<li><span><%= comment.opinion %></span><span><%= comment.user.username %></span></li>
+<% end %>
+</ul>
