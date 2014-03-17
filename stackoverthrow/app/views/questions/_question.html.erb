@@ -18,4 +18,5 @@
 
     <span class="question_user">Asked by: <span class="user"><%= link_to @question.user.username, user_path(@question.user) %></span></span>
 
+    <%= render partial: 'shared/comments', locals: {commentable: @question} %>
 </div>
