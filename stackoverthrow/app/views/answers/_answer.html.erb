@@ -19,7 +19,7 @@
               </li>
             <% end %>
             <li>
-              <span class="comment_button"><%= button_to "comment", new_answer_comment_path(answer), {:method => :get, :class => "commentButton"} %></span>
+              <span class="comment_button"><%= button_to "comment", new_answer_comment_path(answer), {:method => :get, remote: true, :class => "commentButton"} %></span>
             <li>
           </ul>
       </li>
