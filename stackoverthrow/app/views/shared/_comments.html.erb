@@ -2,7 +2,7 @@
   <ul>
     <li><h2>Comments </h2></li>
   <% commentable.comments.each do |comment| %>
-  	<li><span class="opinion"><%= comment.opinion %></span> - <span class="username"><%= comment.user.username %></span></li>
+  	<li><span class="opinion"><%= comment.opinion %></span> - <span class="username"><%=link_to comment.user.username, user_path(comment.user) %></span></li>
   <% end %>
   </ul>
 </div>
