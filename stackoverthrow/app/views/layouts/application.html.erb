@@ -11,9 +11,18 @@
 <body>
   <div id="navbar">
     <h1><a href="/">STACKOVERTHROW</a></h1>
+
     <ul>
+
+      <li><%= form_tag questions_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+      <% end %></li>
       <li><a href="/">Home</a></li>
-      <%= render 'shared/login:logout' %>
+      <li><%= render 'shared/login:logout' %></li>
+
+
+
     </ul>
   </div>
 
