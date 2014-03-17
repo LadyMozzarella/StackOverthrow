@@ -3,7 +3,7 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
-    <%= form_tag  sessions_path do%>
+    <%= form_tag sessions_path do%>
         <li><h4 class="label"><%= label_tag(:username, "Username") %></h4>
         <span class="input_field"><%= text_field_tag(:username) %></span></li>
         <li><h4 class="label"><%= label_tag(:password, "Password") %></h4>

@@ -6,13 +6,13 @@ var Navigation = {
 
   appendLoginForm: function(evt, data){
     $('form').remove();
-    var $form = $(data).find('form');
+    var $form = $(data).find('.login_form');
     $('.login_btn').parent().parent().after($form);
   },
 
   appendSignUp: function(evt, data){
     $('form').remove();
-    var $form = $(data).find('form');
+    var $form = $(data).find('.login_form');
     $('.signup_btn').parent().parent().after($form);
   }
 };
