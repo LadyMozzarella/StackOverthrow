@@ -12,6 +12,6 @@
       <% @user.answers.each do |answer| %>
         <span class="q_a_link"><%= link_to answer.question.title, question_path(answer.question) %></span>
         <% end %></li>
-    <li>Reputation: @user.reputation</li>
+    <li>Reputation: <%=@user.reputation%></li>
   </ul>
 </div>
