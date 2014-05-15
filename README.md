@@ -12,17 +12,29 @@ Visit [Stack Overthrow](http://stackoverthrow.herokuapp.com/)
 
 A user can log in or sign up on the home page.
 
+![https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/home.png?raw=true](https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/home.png?raw=true)
+
+When signed in the user will see a box to ask a question instead of the log in prompt.
+
+![https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/home-signedin.png?raw=true](https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/home-signedin.png?raw=true)
+
 ###Ask a Question
 
 A user can ask a question.
+
+![https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/ask-question.png?raw=true](https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/ask-question.png?raw=true)
 
 ###Answer a Question
 
 A user can answer a question.
 
+![https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/comment.png?raw=true](https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/comment.png?raw=true)
+
 ###Vote on a Question or Answer
 
 A user can vote on a question or answer.
+
+![https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/Vote.png?raw=true](https://github.com/LadyMozzarella/StackOverthrow/blob/master/images/Vote.png?raw=true)
 
 ##Technology Stack
 
